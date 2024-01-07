@@ -1,11 +1,11 @@
 %define major 6
-%define libname %mklibname KSaneCore
-%define devname %mklibname KSaneCore -d
+%define libname %mklibname KSaneCore6
+%define devname %mklibname KSaneCore6 -d
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	A library for dealing with scanners
 Name:		plasma6-ksanecore
-Version:	24.01.80
+Version:	24.01.85
 Release:	1
 Group:		System/Libraries
 License:	GPLv2
@@ -36,8 +36,8 @@ Group:		System/Libraries
 LibKSane is a KDE interface for SANE library to control flat scanners.
 
 %files -n %{libname} -f ksanecore.lang
-%{_libdir}/libKSaneCore.so.1*
-%{_libdir}/libKSaneCore.so.%(echo %{version} |cut -d. -f1)*
+%{_libdir}/libKSaneCore6.so.1*
+%{_libdir}/libKSaneCore6.so.%(echo %{version} |cut -d. -f1)*
 
 #-----------------------------------------------------------------------------
 
@@ -52,9 +52,9 @@ This package contains header files needed if you wish to build applications
 based on %{name}.
 
 %files  -n %{devname}
-%{_includedir}/KSaneCore
-%{_libdir}/libKSaneCore.so
-%{_libdir}/cmake/KSaneCore
+%{_includedir}/KSaneCore6
+%{_libdir}/libKSaneCore6.so
+%{_libdir}/cmake/KSaneCore6
 
 #----------------------------------------------------------------------
 
