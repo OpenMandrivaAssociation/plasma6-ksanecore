@@ -1,3 +1,6 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define major 6
 %define libname %mklibname KSaneCore6
 %define devname %mklibname KSaneCore6 -d
@@ -5,12 +8,16 @@
 
 Summary:	A library for dealing with scanners
 Name:		plasma6-ksanecore
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 Group:		System/Libraries
 License:	GPLv2
 Url:		http://www.kde.org
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/libraries/ksanecore/-/archive/%{gitbranch}/ksanecore-%{gitbranchd}.tar.bz2#/ksanecore-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/ksanecore-%{version}.tar.xz
+%endif
 BuildRequires:	sane-devel
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF6Config)
@@ -59,7 +66,7 @@ based on %{name}.
 #----------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n ksanecore-%{version}
+%autosetup -p1 -n ksanecore-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DQT_MAJOR_VERSION=6 \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
