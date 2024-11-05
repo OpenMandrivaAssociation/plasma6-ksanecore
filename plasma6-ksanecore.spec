@@ -9,7 +9,7 @@
 Summary:	A library for dealing with scanners
 Name:		plasma6-ksanecore
 Version:	24.08.2
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Group:		System/Libraries
 License:	GPLv2
 Url:		https://www.kde.org
