@@ -1,4 +1,4 @@
-%define git 20240217
+#define git 20240217
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define major 6
@@ -9,7 +9,7 @@
 Summary:	A library for dealing with scanners
 Name:		plasma6-ksanecore
 Version:	24.08.2
-Release:	%{?git:0.%{git}.}2
+Release:	%{?git:0.%{git}.}1
 Group:		System/Libraries
 License:	GPLv2
 Url:		https://www.kde.org
